@@ -3,7 +3,7 @@ name: Go
 on:
   # If a code is pushed straight into staging we need it to have the same tests as the code pushed via a pr
   push:
-    branches: ["staging"]
+    branches: ["staging", "main"]
   pull_request:
     branches: ["staging"]
 
@@ -25,14 +25,14 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version: "1.21"
-          cache: false
+          cache: true
       # Check that the code is clean
       - run: ls
       - run: pwd
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
-        working-directory: ./back
         with:
+          working-directory: ./back
           version: v1.54
 
   build:
