@@ -3,10 +3,9 @@ name: "js"
 on:
   # If a code is pushed straight into staging we need it to have the same tests as the code pushed via a pr
   push:
-    branches: ["staging"]
+    branches: ["staging", "main"]
   pull_request:
-    branches: ["staging"]
-    types: [labeled]
+    branches: ["staging", "main"]
 
 jobs:
   es-lint:
