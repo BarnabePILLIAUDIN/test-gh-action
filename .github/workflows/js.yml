@@ -9,7 +9,7 @@ on:
     types: [labeled]
 
 jobs:
-  build:
+  es-lint:
     # With the 3 following lines the commands will be executed in the front directory
     defaults:
       run:
