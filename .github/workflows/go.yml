@@ -36,6 +36,8 @@ jobs:
       # Checkout to our repository. It allows to run the commands in the rigth place
       - uses: actions/checkout@v3
       - run: cd back
+      - run: pwd
+      - run: ls
       # Set up go on environement
       - name: Set up Go
         uses: actions/setup-go@v4
