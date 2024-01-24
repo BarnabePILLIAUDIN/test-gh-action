@@ -1,4 +1,4 @@
-name: Go build and test
+name: Go
 
 on:
   # If a code is pushed straight into staging we need it to have the same tests as the code pushed via a pr
@@ -14,6 +14,7 @@ jobs:
   golangci:
     name: lint
     runs-on: ubuntu-latest
+    # With the 3 following lines the commands will be executed in the back directory
     defaults:
       run:
         working-directory: ./back
@@ -34,6 +35,7 @@ jobs:
           version: v1.54
 
   build:
+    # With the 3 following lines the commands will be executed in the back directory
     defaults:
       run:
         working-directory: ./back
@@ -42,8 +44,6 @@ jobs:
     steps:
       # Checkout to our repository. It allows to run the commands in the rigth place
       - uses: actions/checkout@v3
-      - run: pwd
-      - run: ls
       # Set up go on environement
       - name: Set up Go
         uses: actions/setup-go@v4
